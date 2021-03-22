@@ -3,14 +3,14 @@ import speech_recognition as sr
 rec = sr.Recognizer()
 
 with sr.Microphone() as source:
-    print('konus dinliyorum')
+    print("I'm listening")
     try:
         audio = rec.listen(source, timeout=5,phrase_time_limit=5)
-        print('galiba '+ rec.recognize_google(audio)+' dedin')
+        print('I think you said '+ rec.recognize_google(audio))
     
-    except sr.UnknownValueError:
-        print('anlamadim lutfen tekrar et')
+    except sr.UnknownValueError: 
+        print('please repeat again')
     except sr.WaitTimeoutError:
-        print('neden konusmadin he dalga mi geciyosun canim?')
+        print("I'm waiting you to talk")
     except sr.RequestError:
-        print('net yok')
+        print('No internet connection')
